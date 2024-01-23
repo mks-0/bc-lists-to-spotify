@@ -91,11 +91,6 @@ if __name__ == "__main__":
         tracks_found = 0
         tracks_not_found = 0
 
-        # with open('albums.txt') as file:
-        #     albums = file.read().split()
-        # with open('tracks.txt') as file:
-        #     tracks = file.read().split()[:5]
-
         print("Searching tracks...")
         for album in albums:
             album_uri = sm.find_album(
