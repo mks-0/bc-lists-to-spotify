@@ -83,7 +83,7 @@ class SpotifyManager:
         step = 100
         for i in range(0, end, step):
             self.sp.playlist_add_items(
-                playlist_id, tracks[int(i / 100 * step) : i + step]
+                playlist_id, tracks[int(i / 100 * step): i + step]
             )
 
         self.sp.playlist_add_items(playlist_id, tracks[end:])

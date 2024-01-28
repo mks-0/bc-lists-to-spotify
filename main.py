@@ -62,16 +62,16 @@ if __name__ == "__main__":
 
         if input("Create a new playlist to add tracks to? (y/n): ") == "y":
             new_playlist_name = input("Enter the new playlist name: ")
-            p_list_id = sm.create_playlist("List")[
-                "id"
-            ]  # Creates new playlist for user with a given name
+            # Creates new playlist for user with a given name
+            p_list_id = sm.create_playlist(new_playlist_name)["id"]  
         else:
             playlists = sm.user_playlists()
             print("Your Playlists:")
             [print(p["name"]) for p in playlists]  # Prints all the user's playlists
 
             def choose_playlist(playlist_name):
-                # Choose a playlist to add tracks to by name
+                global playlists
+                # Choose a playlist to add tracks to
                 playlist_id = next(
                     (p["id"] for p in playlists if p["name"] == playlist_name), None
                 )
@@ -84,7 +84,7 @@ if __name__ == "__main__":
                     )
 
             p_list_id = choose_playlist(
-                input("Choose a playlist name to add track to: ")
+                input("Choose a playlist name to add tracks to: ")
             )
 
         tracks = []
